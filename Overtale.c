@@ -28,7 +28,8 @@ int main() {
 
     //variables
 
-    int suspicion = 0; 
+    int suspicion = 0;
+    char Decision[10]; 
     const char storyOp1[] =
         "Deep beneath the surface of the earth, hidden away from the touch of sunlight,\n"
         "there existed a world of darkness unknown to mankind.\n"
@@ -83,4 +84,5 @@ int main() {
     slow_print(storyOp2, 35, 0); //print story opening kedua setelah title 
 
     return 0;
+
 }
