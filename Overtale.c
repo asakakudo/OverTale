@@ -96,9 +96,5 @@ int main() {
     dot_animation();
     printf("\n\n");
 
-    slow_print(storyOp2, 35, 325); //print story opening kedua (mc mendengar sesuatu)
-    dot_animation();
-    printf("\n\n");
-
     return 0;
 }
