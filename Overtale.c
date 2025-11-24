@@ -58,7 +58,8 @@ int main() {
         "As you were admiring it, it spotted you\0"
         "Slowly, the creature approaches you with curiosity\0"
         "The creature doesnt seem to pose any threat to you, but rather has interest in you\0"
-        "You can feel air coming coming out of it snouts as it sniffes you";
+        "You can feel air coming coming out of it snouts as it sniffes you"
+        "RAAARRRRRR";
 
     //main code
 
@@ -96,6 +97,13 @@ int main() {
     dot_animation();
     printf("\n\n");
 
-    return 0;
+    slow_print(storyOp2, 35, 325); //print story opening kedua (mc mendengar sesuatu)
+    dot_animation();
+    printf("\n\n");
 
+    slow_print(storyOp2, 35, 325); //print story opening kedua (mc mendengar sesuatu)
+    dot_animation();
+    printf("\n\n");
+
+    return 0;
 }
