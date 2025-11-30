@@ -13,7 +13,7 @@ int main() {
     play_prologue();
     play_chapter_forest(&player); 
 
-    // play_chapter_house(&player);
+    //play_chapter_house(&player);
 
     return 0;
 }
