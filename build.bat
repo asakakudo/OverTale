@@ -6,7 +6,7 @@ if %errorlevel% neq 0 (
     pause
 ) else (
     echo [Success] Menjalankan game...
-    echo ------------------------------
+    echo -------------------------------
     overtale.exe
 )
 
