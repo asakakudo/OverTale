@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h> // for sleep() / usleep()
+#ifdef _WIN32
+#include <windows.h> // For Sleep() on Windows
+#else
+#include <unistd.h> // For sleep() / usleep() on Unix-like systems
+#endif
 
 void print_title() { //printing the title
     printf("========================================================\n");
@@ -12,7 +16,11 @@ void slow_print(const char *str, int delay, int charPosition) { //printing the c
     while (str[charPosition] != '\0') {
         printf("%c", str[charPosition]);
         fflush(stdout);
-        usleep(delay * 1000); // delay in ms
+#ifdef _WIN32
+        Sleep(delay); // Sleep takes milliseconds
+#else
+        usleep(delay * 1000); // usleep takes microseconds
+#endif
         str++;
     }
 }
@@ -20,12 +28,16 @@ void slow_print(const char *str, int delay, int charPosition) { //printing the c
 void dot_animation(){
     for(int i = 1; i <=3; i++){
         printf(". ");
-        sleep(1);
+#ifdef _WIN32
+        Sleep(1000); // Sleep takes milliseconds
+#else
+        sleep(1); // sleep takes seconds
+#endif
     }
 }
 
 int main() {
-
+    
     //variables
 
     int suspicion = 0; 
@@ -59,12 +71,16 @@ int main() {
         "Slowly, the creature approaches you with curiosity\0"
         "The creature doesnt seem to pose any threat to you, but rather has interest in you\0"
         "You can feel air coming coming out of it snouts as it sniffes you"
-        "RAAARRRRRR";
+        "";
 
     //main code
 
     print_title();//print title
-    sleep(2);
+#ifdef _WIN32
+    Sleep(2000); // Sleep takes milliseconds
+#else
+    sleep(2); // sleep takes seconds
+#endif
 
     slow_print(storyOp1, 35, 0); //print story opening pertama 
     dot_animation();
@@ -97,13 +113,8 @@ int main() {
     dot_animation();
     printf("\n\n");
 
-    slow_print(storyOp2, 35, 325); //print story opening kedua (mc mendengar sesuatu)
-    dot_animation();
-    printf("\n\n");
 
-    slow_print(storyOp2, 35, 325); //print story opening kedua (mc mendengar sesuatu)
-    dot_animation();
-    printf("\n\n");
+    
 
     return 0;
 }
