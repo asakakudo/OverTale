@@ -107,7 +107,6 @@ void play_chapter_forest(GameState *state) {
         // Update Game State
         state->hasEatenDog = 1;
 
-        // Get memory access
         slow_print("\n[You get access to this dog's memory.]\n", 20, 0);
         slow_print("You see a small house, a boy,\n", 30, 0);
         slow_print("and something big that is ambiguous and seems dangerous...\n", 30, 0);

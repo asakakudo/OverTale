@@ -19,7 +19,7 @@ void slow_print(const char *str, int delay, int charPosition) {
         printf("%c", str[i]);
         fflush(stdout);
     #ifdef _WIN32
-        Sleep(delay); // Sleep takes milliseconds
+        Sleep(delay);
     #else
         usleep(delay * 1000);
     #endif
