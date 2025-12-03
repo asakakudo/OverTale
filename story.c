@@ -80,13 +80,13 @@ void play_chapter_forest(GameState *state) {
     slow_print("Slowly, the creature approaches you with curiosity\n", 35, 0);
     slow_print("The creature doesnt seem to pose any threat to you, but rather has interest in you\n", 35, 0);
     slow_print("You can feel air coming coming out of it snouts as it sniffes you\n", 35, 0);
-    // Narasi pikiran (gunakan warna atau tanda kurung berbeda agar menarik)
-    printf("\n( \"This creature is awesome...\" you think )\n\n");
+    //Memakai warna atau tanda kurung berbeda agar menarik)
+    printf("\n( \"This creature is awesome...\" you think )\n\n, 35, 0");
     
     // --- PILIHAN ---
     printf("What would you do?\n");
-    printf("[1] Eat this creature (Changes shape in order to look familiar)\n");
-    printf("[2] Let this creature go (Stay in its original form)\n");
+    printf("[1] Eat this creature (Changes shape in order to look familiar)\n, 35, 0");
+    printf("[2] Let this creature go (Stay in its original form)\n, 35, 0");
     printf("Your choice > ");
     
     int choice;
@@ -120,18 +120,107 @@ void play_chapter_forest(GameState *state) {
         // Update Game State
         state->hasEatenDog = 0;
     }
+    
+        printf("\nPress ENTER to continue your journey");
+        dot_animation();
+        printf("\n\n");
+        getchar();
 
-    // Aslinya akan dipanggil di chapter 2
-    if (state->hasEatenDog == 0) {
-    slow_print("The man's eyes widened at your terrifying true form...\n", 20, 0);
-    slow_print("\"WHAT THE HELL ARE YOU?\" he shouted, aiming the shotgun.\n", 20, 0);
-    slow_print("BANG!!\n", 10, 0);
+    }
+void play_chapter_house(GameState *state) {
+    clear_screen();
 
-    trigger_game_over("You were shot because you were still in Monster form.");
+    if (state->hasEatenDog == 1) {
+
+    slow_print("Following the dog's memory, you found your way out of the forest.\n", 35, 0);
+    slow_print("You see a small house, just like in the vision.\n", 35, 0);
+    slow_print("You approach the front door and scratch it like a dog.\n\n", 35, 0);
+    
+    printf("... *SCRATCH* *SCRATCH* ...\n\n");
+    #ifdef _WIN32
+    Sleep(1000);
+    #else
+    sleep(1);
+    #endif
+
+    slow_print("The door opens.\n", 40, 0);
+    slow_print("A large man appears, holding a SHOTGUN in his hand.\n", 40, 0);
+    slow_print("He smells of alcohol and sweat. An unpleasant scent.\n", 35, 0);
+    } else if (state->hasEatenDog == 0) {
+
+        slow_print("You following the dog to found your way out of the forest.\n", 35, 0);
+        slow_print("You see a small house\n", 35, 0);
+        slow_print("The Dog approach the front door and scratch it.\n\n", 35, 0);
+
+        printf("... *SCRATCH* *SCRATCH* ...\n\n");
+        #ifdef _WIN32
+        Sleep(1000);
+        #else
+        sleep(1);
+        #endif
+
+        slow_print("The door opens.\n", 40, 0);
+        slow_print("A large man appears, holding a SHOTGUN in his hand.\n", 40, 0);
+        slow_print("He smells of alcohol and sweat. An unpleasant scent.\n", 35, 0);
+        slow_print("THE MAN WATCHES YOU FROM A DISTANCE !.\n", 35, 0);
+        slow_print("The man's eyes go wide seeing your shapeless form !\n", 20, 0);
+        slow_print("\"WHAT THE HELL ARE YOU?!\" he screams.\n", 20, 0);
+        slow_print("He aims the shotgun at your head.\n", 30, 0);
+        slow_print("BANG!!!\n", 10, 0);     
+        
+        trigger_game_over("You approached a human in Monster form and got shot.");
+        return;
     }
 
-    printf("\nPress ENTER to continue your journey");
-    dot_animation();
-    printf("\n\n");
+    slow_print("The man looks down at you.\n", 35, 0);
+    slow_print("\"Stupid dog... finally came home?\" he grumbles.\n", 35, 0);
+    slow_print("He lowers the shotgun and lets you in.\n\n", 35, 0);
+
+    printf("Press ENTER to enter the house...");
+    getchar();
+    clear_screen();
+
+    // Masuk Rumah 
+    slow_print("Inside, the house is a mess.\n", 35, 0);
+    slow_print("Empty bottles are scattered everywhere.\n", 35, 0);
+    slow_print("Among the chaos, you see the little boy from the memory.\n\n", 35, 0);
+
+    // Pertemuan dengan Sang Anak 
+    slow_print("\"DEXTER!\" the boy shouts.\n", 35, 0);
+    slow_print("He runs to you and hugs you tightly.\n", 35, 0);
+    slow_print("You feel his relief. A memory flashes in your mind...\n", 35, 0);
+    slow_print("(You see this boy playing happily with a woman with beautiful long hair.)\n", 35, 0);
+    printf("( \"Who is she?\" you wonder. )\n\n");
+
+    // Interaksi dengan Ayah 
+    slow_print("The moment is ruined by the man's sharp voice.\n", 35, 0);
+    slow_print("\"Stupid dog. Don't disappear at night again!\"\n", 35, 0);
+    
+    // Ayah menendang (tidak sakit tapi membingungkan)
+    slow_print("The man kicks you slightly.\n", 35, 0); 
+    slow_print("It didn't hurt much, but you are confused.\n", 35, 0);
+    slow_print("The boy goes silent, afraid to speak back.\n", 35, 0);
+    slow_print("You realize: This man is the 'dangerous thing' from the dog's memory.\n\n", 35, 0);
+
+    printf("Press ENTER to follow the boy...");
+    getchar();
+    clear_screen();
+
+    // Di Kamar Dexter 
+    slow_print("The boy leads you to his room to avoid the man.\n", 35, 0);
+    slow_print("\"We better stay away... he is not okay right now,\" the boy whispers.\n\n", 35, 0);
+    
+    slow_print("\"Where were you? I don't want to lose anything else...\"\n", 35, 0);
+    slow_print("\"...ever since Mom died.\"\n\n", 40, 0);
+
+    printf("( \"Mom?\" You don't have a clear idea who that is. )\n\n");
+
+    slow_print("\"Let's just sleep for tonight. We can play tomorrow, okay?\"\n", 35, 0);
+    slow_print("\"We can't be too loud.\"\n\n", 35, 0);
+
+    slow_print("You obey the boy's request and curl up on the floor.\n", 35, 0);
+    slow_print("This is your first night in the human world.\n", 35, 0);
+
+    printf("\nPress ENTER to Sleep...");
     getchar();
 }

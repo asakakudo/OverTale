@@ -4,10 +4,10 @@
 #include "game-state.h"
 
 void play_prologue();
-
-// Fungsi buat Chapter 1
-// Mengembalikan 1 jika pemain makan anjing, 0 jika tidak makan
 void play_chapter_forest(GameState *state);
+void play_chapter_house(GameState *state);
+
+
 
 #endif
 
