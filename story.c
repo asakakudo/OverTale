@@ -11,27 +11,6 @@
 void play_prologue() {
     // Dipecah menjadi string terpisah biar tidak perlu menghitung offset
     
-    const char *part1 = 
-        "Deep beneath the surface of the earth, hidden away from the touch of sunlight,\n"
-        "there existed a world of darkness unknown to mankind.\n"
-        "In that forgotten place, a strange creature was born, a shapeless entity";
-
-    const char *part2 = "It is you";
-
-    const char *part3 = 
-        "You've lived alone for centuries, surrounded only by echoes and silence.\n"
-        "Yet inside your heart, one dream never faded:\n"
-        "to one day reach the surface, and live peacefully with the surface dwellers";
-
-    const char *part4 = "humans";
-
-    const char *part5 = 
-        "Every night you imagined warmth, laughter, and the feeling of being accepted.\n"
-        "Even though you knew.. you were nothing like a human.\n\n"
-        "Until one night, a crack in the earth opened,\n"
-        "and the moonlight touched your body for the very first time.\n"
-        "This was the moment you've been waiting for.";
-
     print_title();
     #ifdef _WIN32
     Sleep(2000); // Sleep takes milliseconds
@@ -39,23 +18,31 @@ void play_prologue() {
     sleep(2); // sleep takes seconds
     #endif
 
-    slow_print(part1, 35, 0); //print story opening pertama 
+    slow_print("Deep beneath the surface of the earth, hidden away from the touch of sunlight,\n", 35, 0);
+    slow_print("there existed a world of darkness unknown to mankind.\n", 35, 0);
+    slow_print("In that forgotten place, a strange creature was born, a shapeless entity", 35, 0); //print story opening pertama 
     dot_animation();
     printf("\n\n");
 
-    slow_print(part2, 35, 0); 
+    slow_print("It is you", 35, 0); 
     dot_animation();
     printf("\n\n");
 
-    slow_print(part3, 35, 0); 
+    slow_print("You've lived alone for centuries, surrounded only by echoes and silence.\n", 35, 0);
+    slow_print("Yet inside your heart, one dream never faded:\n", 35, 0);
+    slow_print("to one day reach the surface, and live peacefully with the surface dwellers", 35, 0); 
     dot_animation();
     printf("\n\n");
 
-    slow_print(part4, 35, 0); 
+    slow_print("humans", 35, 0); 
     dot_animation();
     printf("\n\n");
 
-    slow_print(part5, 35, 0); 
+    slow_print("Every night you imagined warmth, laughter, and the feeling of being accepted.\n", 35, 0);
+    slow_print("Even though you knew.. you were nothing like a human.\n\n", 35, 0);
+    slow_print("Until one night, a crack in the earth opened,\n", 35, 0);
+    slow_print("and the moonlight touched your body for the very first time.\n", 35, 0);
+    slow_print("This was the moment you've been waiting for.", 35, 0); 
     printf("\n\n"); 
 
     printf("Press ENTER to continue...");
@@ -71,7 +58,9 @@ void play_chapter_forest(GameState *state) {
     slow_print("the wind of the night soothes your skin,\n", 35, 0);
     slow_print("it slithers through the pine trees, blessing your ears with such peacefull ambience.\n", 35, 0);
     slow_print("As you admire your soroundings\n", 35, 0);
-    slow_print("You heard something\n", 35, 0);
+    slow_print("You heard something", 35, 0);
+    dot_animation();
+    printf("\n");
     slow_print("In the bushes nearby there was something making noises\n", 35, 0);
     slow_print("The creature slowly, reveals itself as it walks towards you,\n", 35, 0);
     slow_print("letting the moonlight reveal it's form, you see that it walks on all fours\n", 35, 0);
@@ -81,12 +70,12 @@ void play_chapter_forest(GameState *state) {
     slow_print("The creature doesnt seem to pose any threat to you, but rather has interest in you\n", 35, 0);
     slow_print("You can feel air coming coming out of it snouts as it sniffes you\n", 35, 0);
     //Memakai warna atau tanda kurung berbeda agar menarik)
-    printf("\n( \"This creature is awesome...\" you think )\n\n, 35, 0");
+    printf("\n( \"This creature is awesome...\" you think )\n\n", 35, 0);
     
     // --- PILIHAN ---
     printf("What would you do?\n");
-    printf("[1] Eat this creature (Changes shape in order to look familiar)\n, 35, 0");
-    printf("[2] Let this creature go (Stay in its original form)\n, 35, 0");
+    printf("[1] Eat this creature (Changes shape in order to look familiar)\n", 35, 0);
+    printf("[2] Let this creature go (Stay in its original form)\n", 35, 0);
     printf("Your choice > ");
     
     int choice;
@@ -97,19 +86,24 @@ void play_chapter_forest(GameState *state) {
         // --- Path: MAKAN ANJING ---
         printf("\n");
         slow_print("You choose to eat this dog...\n", 40, 0);
-        slow_print("Maybe by eating this dog I can transform into something\n", 30, 0);
+        slow_print("\"Maybe by eating this dog I can transform into something\"\n", 30, 0);
         slow_print("something more familiar to humans...\n\n", 30, 0);
 
-        slow_print("Your body expands and silently envelops the dog.\n", 50, 0);
-        slow_print("The dog then disappears and is gone.\n", 40, 0);
-        slow_print("You then transform into the dog...\n", 40, 0);
+        slow_print("Your body expands and rapidly envelops the dog.\n", 50, 0);
+        slow_print("It struggled in vain and just in a second, it's gone", 40, 0);
+        dot_animation();
+        printf("\n");
+        slow_print("You then transform into the dog\n", 40, 0);
+
 
         // Update Game State
         state->hasEatenDog = 1;
 
         slow_print("\n[You get access to this dog's memory.]\n", 20, 0);
         slow_print("You see a small house, a boy,\n", 30, 0);
-        slow_print("and something big that is ambiguous and seems dangerous...\n", 30, 0);
+        slow_print("and something big that is ambiguous and seems dangerous", 30, 0);
+        dot_animation();
+        printf("\n");
 
     } else {
         // --- Path: TIDAK MAKAN (Wujud Asli) ---
@@ -121,9 +115,7 @@ void play_chapter_forest(GameState *state) {
         state->hasEatenDog = 0;
     }
     
-        printf("\nPress ENTER to continue your journey");
-        dot_animation();
-        printf("\n\n");
+        printf("\nPress ENTER to continue your journey...");
         getchar();
 
     }
@@ -145,10 +137,10 @@ void play_chapter_house(GameState *state) {
 
     slow_print("The door opens.\n", 40, 0);
     slow_print("A large man appears, holding a SHOTGUN in his hand.\n", 40, 0);
-    slow_print("He smells of alcohol and sweat. An unpleasant scent.\n", 35, 0);
+    slow_print("A foul stench overwhelms your nose, it seems to be coming from him.\n", 35, 0);
     } else if (state->hasEatenDog == 0) {
 
-        slow_print("You following the dog to found your way out of the forest.\n", 35, 0);
+        slow_print("You followed the dog to found your way out of the forest.\n", 35, 0);
         slow_print("You see a small house\n", 35, 0);
         slow_print("The Dog approach the front door and scratch it.\n\n", 35, 0);
 
@@ -161,7 +153,7 @@ void play_chapter_house(GameState *state) {
 
         slow_print("The door opens.\n", 40, 0);
         slow_print("A large man appears, holding a SHOTGUN in his hand.\n", 40, 0);
-        slow_print("He smells of alcohol and sweat. An unpleasant scent.\n", 35, 0);
+        slow_print("Clothes rugged, eyes red, and his hair.. it's all over the place.\n", 35, 0);
         slow_print("THE MAN WATCHES YOU FROM A DISTANCE !.\n", 35, 0);
         slow_print("The man's eyes go wide seeing your shapeless form !\n", 20, 0);
         slow_print("\"WHAT THE HELL ARE YOU?!\" he screams.\n", 20, 0);
@@ -190,17 +182,34 @@ void play_chapter_house(GameState *state) {
     slow_print("He runs to you and hugs you tightly.\n", 35, 0);
     slow_print("You feel his relief. A memory flashes in your mind...\n", 35, 0);
     slow_print("(You see this boy playing happily with a woman with beautiful long hair.)\n", 35, 0);
-    printf("( \"Who is she?\" you wonder. )\n\n");
+    slow_print("( \"Who is she?\" you wonder. )\n\n", 35, 0);
 
     // Interaksi dengan Ayah 
     slow_print("The moment is ruined by the man's sharp voice.\n", 35, 0);
-    slow_print("\"Stupid dog. Don't disappear at night again!\"\n", 35, 0);
+    slow_print("\"Damn mutt. Dissapear one more time and i'm going to sell you to the furr farm!\n\n", 35, 0);
     
     // Ayah menendang (tidak sakit tapi membingungkan)
-    slow_print("The man kicks you slightly.\n", 35, 0); 
+    slow_print("The man kicks you slightly.\n\n", 35, 0); 
     slow_print("It didn't hurt much, but you are confused.\n", 35, 0);
     slow_print("The boy goes silent, afraid to speak back.\n", 35, 0);
-    slow_print("You realize: This man is the 'dangerous thing' from the dog's memory.\n\n", 35, 0);
+
+    slow_print("You realize", 35, 0);
+    dot_animation();
+    printf("\n\n");
+
+    slow_print("This man", 35, 0);
+    dot_animation();
+    printf("\n\n");
+
+    slow_print("That dangerous thing", 35, 0);
+    dot_animation();
+    printf("\n\n");
+
+    slow_print("Its him", 35, 0);
+    dot_animation();
+    printf("\n\n");
+
+    slow_print("\"Let's go upstairs Dexter\"\n", 25, 0);
 
     printf("Press ENTER to follow the boy...");
     getchar();
@@ -223,4 +232,77 @@ void play_chapter_house(GameState *state) {
 
     printf("\nPress ENTER to Sleep...");
     getchar();
+    clear_screen();
+
+    slow_print("The night has passed", 35, 0);
+    dot_animation();
+    printf("\n\n");
+
+    slow_print("\"Wake up Dexter", 30, 0);
+    dot_animation();
+    printf("\"\n\n");
+
+    slow_print("You heard the boy called your name", 35, 0);
+    slow_print("You wake up as a response", 35, 0);
+
+    slow_print("\"Let's play dexter", 25, 0);
+    dot_animation();
+    printf("\"\n\n");
+
+    slow_print("Play?.. PLAY?!.. Finally this is the time you have been waiting for,\n", 35, 0);
+    slow_print("You can finally play with someone after years of loneliness.\n", 35, 0);
+    slow_print("You act excited like how any dog would. \n\n", 35, 0);
+
+    printf("... *HOP* *HOP* *HOP* ...\n\n");
+
+    slow_print("\"Wow you are excited too ?\"\n", 25, 0);
+    slow_print("\"Let's head to our playing field then buddy\"", 25, 0);
+    slow_print("\"Follow me", 25, 0);
+    dot_animation();
+    printf("\"\n\n");
+
+    slow_print("You followed the boy's command and runs after him,", 35, 0);
+    slow_print("Down stairs you see that the man is no longer here, you wonder where he is, maybe he is sleeping.", 35, 0);
+    slow_print("after pausing for a moment to think about the man, you continued to follow the boy", 35, 0);
+    dot_animation();
+    printf("\n\n");
+
+    slow_print("As you follow the boy you finally can feel the light of the sun on your body,\n", 35, 0);
+    slow_print("it is very warm...\n", 35, 0);
+    slow_print("You continued to follow the boy through what seems a smal forrest,\n", 35, 0);
+    slow_print("The sounds of the birds chirping are music to your ears", 35, 0);
+    dot_animation();
+    printf("\n\n");
+
+    slow_print("suddenly a bight light strucked you face\n", 35, 0);
+    slow_print("the edge of the forest is right infront of you\n", 35, 0);
+    slow_print("you continued to move forward", 35, 0);
+    dot_animation();
+    printf("\n\n");
+
+    slow_print("You jumped through the light", 35, 0);
+    dot_animation();
+    printf("\n\n");
+
+    slow_print("The other side", 35, 0);
+    dot_animation();
+    printf("\n");
+    slow_print("It's beautifull", 35, 0);
+    dot_animation();
+    printf("\n");
+    slow_print("It is a small open field in the middle of the forest,\n", 35, 0);
+    slow_print("the field is covered in grass, golden like the ores you've seen underground,", 35, 0);
+    slow_print("yet, it is more beautifull", 35, 0);
+    dot_animation();
+    printf("\n\n");
+
+    slow_print("In the middle of the golden fields, there is a singular tree that looks different than the others,\n", 35, 0);
+    slow_print("There is a swing hanging on the tree", 35, 0);
+
+
+
+
+
+
+
 }
