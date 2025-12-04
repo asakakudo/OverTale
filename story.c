@@ -315,4 +315,35 @@ void play_chapter_house(GameState *state) {
     slow_print("The vision stopped", 35, 0);
     dot_animation();
     printf("\n\n");
+
+    slow_print("\"Dexter...\" called the confused boy\n\n", 25, 0);
+
+    slow_print("You were spacing out a little there\n", 35, 0);
+    slow_print("This cause your suspicion bar to increase a little\n\n", 35, 0);
+    //suspicion increase by 15
+    slow_print("\"What's wrong dexter? Lets play...\"\n\n", 25, 0);
+
+    slow_print("You start acting excited like a normal dog again and started playing with the little boy\n\n", 35, 0);
+
+    slow_print("But", 35, 0);
+    dot_animation();
+    printf("\n\n");
+
+    slow_print("You don't know how to play exactly.\n", 35, 0);
+    slow_print("When the boy asked you to play chase you didn't chase him untuill he tells you to.\n", 35, 0);
+    slow_print("When the boy wanted to play fetch you stared at him untill he explains you how to play it\n\n", 35, 0);
+    slow_print("It seems that you can only recall the dog's crucial memory\n\n", 35, 0);
+
+    slow_print("Staying silent and observing first is the right decision rather than guessing how the game works\n", 35, 0);
+    //suspicion bar increase by 10
+    slow_print("As you were playing fetch and you were bringing back the stick to the boy\n", 35, 0);
+    slow_print("The boy said\n\n", 35, 0);
+    
+    slow_print("\"He should be out right now\"", 35, 0);
+
+
+
+
+
+
 }
