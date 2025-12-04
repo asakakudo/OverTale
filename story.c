@@ -47,7 +47,6 @@ void play_prologue() {
 
     printf("Press ENTER to continue...");
     getchar(); 
-    printf("\n");
 }
     
 // Fungsi buat Chapter 1
@@ -209,7 +208,7 @@ void play_chapter_house(GameState *state) {
     dot_animation();
     printf("\n\n");
 
-    slow_print("\"Let's go upstairs Dexter\"\n", 25, 0);
+    slow_print("\"Let's go upstairs Dexter\"\n\n", 25, 0);
 
     printf("Press ENTER to follow the boy...");
     getchar();
@@ -242,8 +241,8 @@ void play_chapter_house(GameState *state) {
     dot_animation();
     printf("\"\n\n");
 
-    slow_print("You heard the boy called your name", 35, 0);
-    slow_print("You wake up as a response", 35, 0);
+    slow_print("You heard the boy called your name\n", 35, 0);
+    slow_print("You wake up as a response\n", 35, 0);
 
     slow_print("\"Let's play dexter", 25, 0);
     dot_animation();
@@ -256,14 +255,14 @@ void play_chapter_house(GameState *state) {
     printf("... *HOP* *HOP* *HOP* ...\n\n");
 
     slow_print("\"Wow you are excited too ?\"\n", 25, 0);
-    slow_print("\"Let's head to our playing field then buddy\"", 25, 0);
+    slow_print("\"Let's head to our playing field then buddy\"\n", 25, 0);
     slow_print("\"Follow me", 25, 0);
     dot_animation();
     printf("\"\n\n");
 
-    slow_print("You followed the boy's command and runs after him,", 35, 0);
-    slow_print("Down stairs you see that the man is no longer here, you wonder where he is, maybe he is sleeping.", 35, 0);
-    slow_print("after pausing for a moment to think about the man, you continued to follow the boy", 35, 0);
+    slow_print("You followed the boy's command and runs after him,\n", 35, 0);
+    slow_print("Down stairs you see that the man is no longer here, you wonder where he is, maybe he is sleeping.\n", 35, 0);
+    slow_print("after pausing for a moment to think about the man, you continued to follow the boy\n", 35, 0);
     dot_animation();
     printf("\n\n");
 
@@ -291,8 +290,8 @@ void play_chapter_house(GameState *state) {
     dot_animation();
     printf("\n");
     slow_print("It is a small open field in the middle of the forest,\n", 35, 0);
-    slow_print("the field is covered in grass, golden like the ores you've seen underground,", 35, 0);
-    slow_print("yet, it is more beautifull", 35, 0);
+    slow_print("the field is covered in grass, golden like the ores you've seen underground,\n", 35, 0);
+    slow_print("yet, it is more beautifull\n", 35, 0);
     dot_animation();
     printf("\n\n");
 
