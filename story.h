@@ -6,6 +6,7 @@
 void play_prologue();
 void play_chapter_forest(GameState *state);
 void play_chapter_house(GameState *state);
+void play_chapter_TheFields(GameState *state);
 
 
 

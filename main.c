@@ -9,10 +9,14 @@ int main() {
     player.suspicionMeter = 0;
     player.hasEatenDog = 0;
     player.hasFrisbee = 0;
+    player.hasBall = 0;
+    player.hasKnife = 0;
+    player.hasKnot = 0;
 
     play_prologue();
     play_chapter_forest(&player); 
     play_chapter_house(&player);
+    play_chapter_TheFields(&player);
 
     return 0;
 }

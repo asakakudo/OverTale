@@ -118,6 +118,9 @@ void play_chapter_forest(GameState *state) {
         getchar();
 
     }
+
+    int choice = 0;
+
 void play_chapter_house(GameState *state) {
     clear_screen();
 
@@ -218,7 +221,9 @@ void play_chapter_house(GameState *state) {
     clear_screen();
 
     // Di Kamar Dexter
-    slow_print("\"Yea Go to your room you useless bratt, it's better if you are not here anyway\" shout the man\n", 35, 0); 
+    slow_print("\"Yea Go to your room you useless bratt, it's better if you are not here anyway\" shout the man", 35, 0); 
+    dot_animation();
+    printf("\n\n");
 
     slow_print("The little human leads you to his room to avoid the man.\n", 35, 0);
     slow_print("\"We better stay away... he is not okay right now,\" the boy whispers.\n\n", 35, 0);
@@ -238,6 +243,9 @@ void play_chapter_house(GameState *state) {
     getchar();
     clear_screen();
 
+}
+
+void play_chapter_TheFields(GameState *state){
     slow_print("The night has passed", 35, 0);
     dot_animation();
     printf("\n\n");
@@ -279,11 +287,15 @@ void play_chapter_house(GameState *state) {
     printf("\n\n");
 
     slow_print("suddenly a bight light strucked you face\n", 35, 0);
-    slow_print("the edge of the forest is right infront of you\n", 35, 0);
-    slow_print("you continued to move forward", 35, 0);
+    slow_print("the edge of the forest is right infront of you", 35, 0);
     dot_animation();
     printf("\n\n");
 
+    printf("press enter to jump through...");
+    getchar();
+    clear_screen();
+
+    //the fields
     slow_print("You jumped through the light", 35, 0);
     dot_animation();
     printf("\n\n");
@@ -309,7 +321,7 @@ void play_chapter_house(GameState *state) {
     slow_print("( You see the figure is stretching it's hand to the air as if signaling \"right here!\" )\n", 35, 0);
     slow_print("( When you look back you see, it's the man... He is walking towards you )\n", 35, 0);
     slow_print("( He walks faster...)\n", 35, 0);
-    slow_print("( Faster... \n", 35, 0);
+    slow_print("( Faster... )\n", 35, 0);
     slow_print("( FASTER!!!!!!!!!!!!!)\n\n", 15, 0);
 
     slow_print("The vision stopped", 35, 0);
@@ -320,7 +332,9 @@ void play_chapter_house(GameState *state) {
 
     slow_print("You were spacing out a little there\n", 35, 0);
     slow_print("This cause your suspicion bar to increase a little\n\n", 35, 0);
-    //suspicion increase by 15
+    
+    state->suspicionMeter += 15;
+
     slow_print("\"What's wrong dexter? Lets play...\"\n\n", 25, 0);
 
     slow_print("You start acting excited like a normal dog again and started playing with the little boy\n\n", 35, 0);
@@ -335,15 +349,110 @@ void play_chapter_house(GameState *state) {
     slow_print("It seems that you can only recall the dog's crucial memory\n\n", 35, 0);
 
     slow_print("Staying silent and observing first is the right decision rather than guessing how the game works\n", 35, 0);
-    //suspicion bar increase by 10
-    slow_print("As you were playing fetch and you were bringing back the stick to the boy\n", 35, 0);
-    slow_print("The boy said\n\n", 35, 0);
     
-    slow_print("\"He should be out right now\"", 35, 0);
+    state->suspicionMeter += 10;
+    
+    slow_print("As you were playing fetch and you were bringing back the stick to the boy.\n", 35, 0);
+    slow_print("The boy said...\n\n", 35, 0);
+    
+    slow_print("\"He should be out by now...\"\n", 30, 0);
+    slow_print("\"He's always like that, I hate him now, every day he would wake up and go to the bar until night\"\n\n", 30, 0);
+   
+    slow_print("Listening, to the little man words, you realized that the boy dislike this man,\n\n", 35, 0);
+    slow_print("You feel like you should protect this little man from him.\n", 35, 0);
 
+    slow_print("\"Now that he is not here, go ahead Dexter, get your favourite toy\"\n\n", 30, 0);
 
+    slow_print("( \"My... Favourite... Toy... ?\" )\n\n", 50, 0);
 
+    slow_print("You don't have a clear idea about that \"thing\",\n", 35, 0);
+    slow_print("but you must, or the boy will become more suspicious of you.\n", 35, 0);
+    slow_print("Maybe if you just go to your house and look for it you'll get a flash back", 35, 0);
+    dot_animation();
+    printf("\n\n");
 
+    slow_print("you dashed back towards the house,\n", 35, 0);
+    slow_print("passing through the same bush, and the same trees.\n", 35, 0);
+    slow_print("Until", 35, 0);
+    dot_animation();
+    printf("\n\n");
 
+    slow_print("there it is, the house\n", 35, 0);
+    dot_animation();
+    printf("\n\n");
+
+    printf("press enter to enter the house...");
+    getchar();
+    clear_screen();
+
+    //getting toy
+    slow_print("You have entered the house\n", 35, 0);
+    slow_print("Inside, you no longer feel that man presence, he is gone\n", 35, 0);
+    slow_print("Time to start looking for your toy", 35, 0);
+    dot_animation();
+    printf("\n\n");
+
+    slow_print("In the first room you are in after entering the house.\n", 35, 0);
+    slow_print("There is a round shaped object that is quite huge and it is brightly colorfull.\n", 35, 0);
+    slow_print("( \"Maybe this is my favourite toy\" ) You thought\n\n", 35, 0);
+
+    slow_print("But you are not just going to pick a decision based on one object that you assume is the toy.\n", 35, 0);
+    slow_print("Let's look for more...\n\n", 35, 0);
+
+    slow_print("You continued to search arround the house, and encountered a room.\n", 35, 0);
+    slow_print("The stench of this room is soo foul.\n", 35, 0);
+    slow_print("On the sides of the room there are a lot of cupboards, filled with strange items to you.\n", 35, 0);
+    slow_print("In the middle of the room there is a huge table that has 3 objects ontop of it, the objects are white and somewhat shiny.\n", 35, 0);
+    slow_print("But among those items, one in particular stood out, a flat item that is super shiny and kinda shaped like a triangle \n", 35, 0);
+    slow_print("( \"Maybe this is my favourite toy\" ) You thought\n\n", 35, 0);
+
+    slow_print("But no you are not done looking yet there might be more.\n", 35, 0);
+    slow_print("Let's continue...\n\n", 35, 0);
+
+    slow_print("You are now upstairs, inside the boy's room.\n", 35, 0);
+    slow_print("There are 2 Items that piqued your interest.", 35, 0);
+    slow_print("One item is a flat circle shaped with a bright red color,\n", 35, 0);
+    slow_print("the second item is a long object that has 2 balls on each end,\n", 35, 0);
+    slow_print("the item is not stiff though, and the balls are seem to be made from the item tied to itself", 35, 0);
+    dot_animation();
+    printf("\n\n");
+
+    slow_print("That should be enough items, now which one are you going to choose: \n", 35, 0);
+    printf("[1] The round colorfull object.\n");
+    printf("[2] The flat super shiny triangular object.\n");
+    printf("[3] The flat circle shaped red object.\n");
+    printf("[4] The long object with 2 balls on each end.\n");
+    printf("Your choice >");
+
+    scanf("%d", &choice);
+    getchar();
+
+    if(choice == 1){
+        state->hasBall = 1;
+        slow_print("You have chosen the round colorfull object.\n", 35, 0); 
+        slow_print("It's gotta be this one, it is very colorfull and kinda big to just hit arround\n", 35, 0);          
+    }
+
+    else if(choice == 2){
+        state->hasKnife = 1;
+        slow_print("You have chosen the flat and super shiny triangular object.\n", 35, 0);
+        slow_print("It's gotta be this one it's shiny and pretty easy to wield on your mouth \n\n", 35, 0);
+    }
+
+    else if(choice == 3){
+        state->hasFrisbee = 1;
+        slow_print("You have chosen the flat and red colored circular object.\n", 35, 0);
+        slow_print("It's gotta be this one, even though you don't know why you feel like this is the toy\n\n", 35, 0);
+    }
+
+    else{
+        state->hasKnot = 1;
+        slow_print("You have chosen the long object with balls on each end.\n", 35, 0);
+        slow_print("It's gotta be this one, the object is very easily to handle with my mouth and feel comfy to bite on\n\n", 35, 0);
+    }
+
+    printf("press enter to continue...");
+    getchar();
 
 }
+
