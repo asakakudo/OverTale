@@ -10,14 +10,13 @@
 
 void play_prologue() {
     // Dipecah menjadi string terpisah biar tidak perlu menghitung offset
-    
     print_title();
     #ifdef _WIN32
     Sleep(2000); // Sleep takes milliseconds
     #else
     sleep(2); // sleep takes seconds
     #endif
-
+    
     slow_print("Deep beneath the surface of the earth, hidden away from the touch of sunlight,\n", 35, 0);
     slow_print("there existed a world of darkness unknown to mankind.\n", 35, 0);
     slow_print("In that forgotten place, a strange creature was born, a shapeless entity", 35, 0); //print story opening pertama 
@@ -51,7 +50,6 @@ void play_prologue() {
     
 // Fungsi buat Chapter 1
 void play_chapter_forest(GameState *state) {
-
     slow_print("\nYou crawled out of the abyss and was met with the sight of the surface,\n", 35, 0);
     slow_print("It is beautifull, stunning, nothing like you've ever seen, the moon light shines on your body,\n", 35, 0);
     slow_print("the wind of the night soothes your skin,\n", 35, 0);
@@ -69,12 +67,12 @@ void play_chapter_forest(GameState *state) {
     slow_print("The creature doesnt seem to pose any threat to you, but rather has interest in you\n", 35, 0);
     slow_print("You can feel air coming coming out of it snouts as it sniffes you\n", 35, 0);
     //Memakai warna atau tanda kurung berbeda agar menarik)
-    printf("\n( \"This creature is awesome...\" you think )\n\n", 35, 0);
+    printf("\n( \"This creature is awesome...\" you think )\n\n");
     
     // --- PILIHAN ---
     printf("What would you do?\n");
-    printf("[1] Eat this creature (Changes shape in order to look familiar)\n", 35, 0);
-    printf("[2] Let this creature go (Stay in its original form)\n", 35, 0);
+    printf("[1] Eat this creature (Changes shape in order to look familiar)\n");
+    printf("[2] Let this creature go (Stay in its original form)\n");
     printf("Your choice > ");
     
     int choice;
@@ -119,7 +117,6 @@ void play_chapter_forest(GameState *state) {
 
     }
 
-    int choice = 0;
 
 void play_chapter_house(GameState *state) {
     clear_screen();
@@ -214,7 +211,7 @@ void play_chapter_house(GameState *state) {
     dot_animation();
     printf("\n\n");
 
-    slow_print("\"Let's go upstairs Dexter\" says the little human \n\n", 25, 0);
+    slow_print("\"Lets go upstairs Dexter\" says the little human \n\n", 25, 0);
 
     printf("Press ENTER to follow the little human...");
     getchar();
@@ -233,7 +230,7 @@ void play_chapter_house(GameState *state) {
 
     printf("( \"Mom?\" You don't have a clear idea who that is. But the man sure refer to this little human as boy. )\n\n");
 
-    slow_print("\"Let's just sleep for tonight. We can play tomorrow, okay?\"\n", 35, 0);
+    slow_print("\"Lets just sleep for tonight. We can play tomorrow, okay?\"\n", 35, 0);
     slow_print("\"We can't be too loud.\"\n\n", 35, 0);
 
     slow_print("You obey the boy's request and curl up on the floor.\n", 35, 0);
@@ -257,7 +254,7 @@ void play_chapter_TheFields(GameState *state){
     slow_print("You heard the boy called your name.\n", 35, 0);
     slow_print("You wake up as a response.\n\n", 35, 0);
 
-    slow_print("\"Let's go play dexter", 25, 0);
+    slow_print("\"Lets go play dexter", 25, 0);
     dot_animation();
     printf("\"\n\n");
 
@@ -268,7 +265,7 @@ void play_chapter_TheFields(GameState *state){
     printf("... *HOP* *HOP* *HOP* ...\n\n");
 
     slow_print("\"Wow you are excited too ?\"\n", 25, 0);
-    slow_print("\"Let's head to our playing field then buddy\"\n", 25, 0);
+    slow_print("\"Lets head to our playing field then buddy\"\n", 25, 0);
     slow_print("\"Follow me", 25, 0);
     dot_animation();
     printf("\"\n\n");
@@ -333,7 +330,7 @@ void play_chapter_TheFields(GameState *state){
     slow_print("You were spacing out a little there\n", 35, 0);
     slow_print("This cause your suspicion bar to increase a little\n\n", 35, 0);
     
-    state->suspicionMeter += 15;
+    animate_suspicion_meter(&state->suspicionMeter, 15);
 
     slow_print("\"What's wrong dexter? Lets play...\"\n\n", 25, 0);
 
@@ -348,9 +345,9 @@ void play_chapter_TheFields(GameState *state){
     slow_print("When the boy wanted to play fetch you stared at him untill he explains you how to play it\n\n", 35, 0);
     slow_print("It seems that you can only recall the dog's crucial memory\n\n", 35, 0);
 
-    slow_print("Staying silent and observing first is the right decision rather than guessing how the game works\n", 35, 0);
+    slow_print("Staying silent and observing first is the right decision rather than guessing how the game works.\n", 35, 0);
     
-    state->suspicionMeter += 10;
+    animate_suspicion_meter(&state->suspicionMeter, 25);
     
     slow_print("As you were playing fetch and you were bringing back the stick to the boy.\n", 35, 0);
     slow_print("The boy said...\n\n", 35, 0);
@@ -358,8 +355,8 @@ void play_chapter_TheFields(GameState *state){
     slow_print("\"He should be out by now...\"\n", 30, 0);
     slow_print("\"He's always like that, I hate him now, every day he would wake up and go to the bar until night\"\n\n", 30, 0);
    
-    slow_print("Listening, to the little man words, you realized that the boy dislike this man,\n\n", 35, 0);
-    slow_print("You feel like you should protect this little man from him.\n", 35, 0);
+    slow_print("Listening, to the little man words, you realized that the boy dislike this man,\n", 35, 0);
+    slow_print("You feel like you should protect this little man from him.\n\n", 35, 0);
 
     slow_print("\"Now that he is not here, go ahead Dexter, get your favourite toy\"\n\n", 30, 0);
 
@@ -377,7 +374,7 @@ void play_chapter_TheFields(GameState *state){
     dot_animation();
     printf("\n\n");
 
-    slow_print("there it is, the house\n", 35, 0);
+    slow_print("there it is, the house", 35, 0);
     dot_animation();
     printf("\n\n");
 
@@ -397,7 +394,7 @@ void play_chapter_TheFields(GameState *state){
     slow_print("( \"Maybe this is my favourite toy\" ) You thought\n\n", 35, 0);
 
     slow_print("But you are not just going to pick a decision based on one object that you assume is the toy.\n", 35, 0);
-    slow_print("Let's look for more...\n\n", 35, 0);
+    slow_print("Lets look for more...\n\n", 35, 0);
 
     slow_print("You continued to search arround the house, and encountered a room.\n", 35, 0);
     slow_print("The stench of this room is soo foul.\n", 35, 0);
@@ -407,7 +404,7 @@ void play_chapter_TheFields(GameState *state){
     slow_print("( \"Maybe this is my favourite toy\" ) You thought\n\n", 35, 0);
 
     slow_print("But no you are not done looking yet there might be more.\n", 35, 0);
-    slow_print("Let's continue...\n\n", 35, 0);
+    slow_print("Lets continue...\n\n", 35, 0);
 
     slow_print("You are now upstairs, inside the boy's room.\n", 35, 0);
     slow_print("There are 2 Items that piqued your interest.", 35, 0);
@@ -424,35 +421,169 @@ void play_chapter_TheFields(GameState *state){
     printf("[4] The long object with 2 balls on each end.\n");
     printf("Your choice >");
 
+    int choice = 0;
     scanf("%d", &choice);
     getchar();
 
+    while (choice < 1 || choice > 4){
+
+        printf("Invalid input, please re enter\n"); 
+        printf("Your choice >");
+        scanf("%d", &choice);
+        getchar();
+        printf("\n");
+
+    }
+
+    printf("\n\n");
+
     if(choice == 1){
-        state->hasBall = 1;
-        slow_print("You have chosen the round colorfull object.\n", 35, 0); 
-        slow_print("It's gotta be this one, it is very colorfull and kinda big to just hit arround\n", 35, 0);          
-    }
+            state->hasBall = 1;
+            slow_print("You have chosen the round colorfull object.\n", 35, 0); 
+            slow_print("It's gotta be this one, it is very colorfull and kinda big to just hit arround\n", 35, 0);          
+        }
 
-    else if(choice == 2){
-        state->hasKnife = 1;
-        slow_print("You have chosen the flat and super shiny triangular object.\n", 35, 0);
-        slow_print("It's gotta be this one it's shiny and pretty easy to wield on your mouth \n\n", 35, 0);
-    }
+        else if(choice == 2){
+            state->hasKnife = 1;
+            slow_print("You have chosen the flat and super shiny triangular object.\n", 35, 0);
+            slow_print("It's gotta be this one it's shiny and pretty easy to wield on your mouth \n\n", 35, 0);
+        }
 
-    else if(choice == 3){
-        state->hasFrisbee = 1;
-        slow_print("You have chosen the flat and red colored circular object.\n", 35, 0);
-        slow_print("It's gotta be this one, even though you don't know why you feel like this is the toy\n\n", 35, 0);
-    }
+        else if(choice == 3){
+            state->hasFrisbee = 1;
+            slow_print("You have chosen the flat and red colored circular object.\n", 35, 0);
+            slow_print("It's gotta be this one, even though you don't know why you feel like this is the toy\n\n", 35, 0);
+        }
 
-    else{
-        state->hasKnot = 1;
-        slow_print("You have chosen the long object with balls on each end.\n", 35, 0);
-        slow_print("It's gotta be this one, the object is very easily to handle with my mouth and feel comfy to bite on\n\n", 35, 0);
-    }
+        else if(choice == 4){
+            state->hasKnot = 1;
+            slow_print("You have chosen the long object with balls on each end.\n", 35, 0);
+            slow_print("It's gotta be this one, the object is very easily to handle with my mouth and feel comfy to bite on\n\n", 35, 0);
+        }
 
     printf("press enter to continue...");
     getchar();
+    clear_screen();
 
+    slow_print("You got the item, now it's time to return to the boy", 35, 0);
+    dot_animation();
+    printf("\n\n");
+
+    slow_print("Running through the same woods, you have arrived on the fields\n", 35, 0);
+
+    if(state->hasBall == 1){
+        slow_print("the boy is waiting under the tree,\n", 35, 0);
+        slow_print("You run towards the boy bringing the round and brightly colorfull object", 35, 0);
+        dot_animation();
+        printf("\n\n");
+        slow_print("\"Dexter!!.. You brought a beach ball?...\"\n", 35, 0);
+        slow_print("\"I didn't know you like to play with this thing before\"\n", 35, 0);
+        slow_print("\"I guess you want to play with this today, right ? Lets just play\n\n", 35, 0);
+
+        animate_suspicion_meter(&state->suspicionMeter, 55);
+
+        slow_print("You Realized you probably just made a mistake, but the deed has been done.\n", 35, 0);
+        slow_print("You still will play with the boy using the beach ball and having fun,\n", 35, 0);
+        slow_print("But the boy probably has his eyes on you.\n\n", 35, 0);
+        
+        slow_print("Both of you played untill the sun is starting to set.", 35, 0);
+    }
+    
+    else if(state->hasKnife == 1){
+        slow_print("the boy is waiting under the tree,\n", 35, 0);
+        slow_print("You run towards the boy bringing the flat shiny and triangular object ", 35, 0);
+        dot_animation();
+        printf("\n\n");
+        slow_print("\"Dexter", 35, 0);
+        dot_animation();
+        slow_print(" DEXTER!!!!! \n", 25, 0);
+        slow_print("\"DEXTER.. WHY ARE YOU BRINGING A KNIFE HERE!?\"\n", 25, 0);
+        slow_print("\"DROP IT BOY!! DROP IT!!\"\n\n", 25, 0);
+
+        slow_print("You messed up... you know it, now there is no way for this kid to trust you anymore\n\n", 40, 0);
+
+        slow_print("\"You were spacing out when i called your name here.\"\n", 35, 0);
+        slow_print("\"You somehow seem to forget how to play the games we always plays here.\"\n", 35, 0);
+        slow_print("\"Who are you", 50, 0);
+        dot_animation();
+        printf("\"\n");
+
+        animate_suspicion_meter(&state->suspicionMeter, 100);
+
+        trigger_game_over("You brought the absolute worst object");
+        return;
+    }
+
+    else if(state->hasFrisbee == 1){
+        slow_print("the boy is waiting under the tree,\n", 35, 0);
+        slow_print("You run towards the boy bringing the flat and bright red object", 35, 0);
+        dot_animation();
+        printf("\n\n");
+
+        slow_print("\"Dexter!!.. You brought... the frisbee?...\"\n\n", 35, 0);
+        dot_animation();
+        printf("\n\n");
+        slow_print("What happened?", 45, 0);
+        dot_animation();
+        printf("\n\n");
+        slow_print("did you brought the right toy?", 45, 0);
+        dot_animation();
+        printf("\n\n");
+
+        slow_print("\"oop.. Sorry Dexter I was spacing out there,\"\n", 35, 0);
+        slow_print("\"it's just that, mom used to play with this frisbee with you a lot before", 35, 0);
+        dot_animation();
+        printf("\"\n\n");
+
+        slow_print("( Again, who is mom ? ) you thought.\n", 40, 0);
+        slow_print("Your thought process was interupted by the boy's words.\n", 40, 0);
+        slow_print("\"Lets just continue to play Dexter\"\n", 40, 0);
+        slow_print("\"It's not good to just keep remembering the past,\"\n", 40, 0);
+        slow_print("\"no matter how much I wish it didn't went like this, it wouldn't change anything\"\n", 40, 0);
+        slow_print("\"Atleast i still have you Dexter", 40, 0);
+        dot_animation();
+        printf("\"\n\n");
+
+        slow_print("Based on that respond, maybe you have made the right decision,\n", 35, 0);
+
+        animate_suspicion_meter(&state->suspicionMeter, 0);
+
+        slow_print("\"Catch Dexter...\" Shouts the boy\n", 35, 0);
+        slow_print("The boy then throw the frisbee up to the sky,\n", 35, 0);
+        slow_print("You ran after the thrown frisbee, the spin of the frisbee tears through the air...\n", 35, 0);
+        slow_print("It seems like it would never land. Knowing that you jump to catch the frisbee with your mouth.\n\n", 35, 0);
+        
+        printf("... *HOP* ... *CLACK* ...\n\n");
+
+        slow_print("\"GOOD JOB DEXTER!\"\n\n", 35, 0);
+
+        slow_print("You got it, now to just bring the toy back to the boy.\n", 35, 0);
+        slow_print("The boy had such joy in his face as you brought the toy back.\n", 35, 0);
+
+        slow_print("This is it", 35, 0);
+        dot_animation();
+        printf("\n\n");
+
+        slow_print("This is what it means to live with humans side by side", 35, 0);
+        dot_animation();
+        printf("\n\n");
+
+        slow_print("Both of you were having so much fun playing untill you realize the sun is starting to set\n\n", 35, 0);
+    }
+
+    else if(state->hasKnot == 1){
+        slow_print("the boy is waiting under the tree,\n", 35, 0);
+        slow_print("You run towards the boy bringing the flexible object with 2 balls on each of its end", 35, 0);
+        dot_animation();
+        printf("\n\n");
+
+    }
+
+    slow_print("\"It's getting late Dexter, lets go back home\"\n", 35, 0);
+    slow_print("Is it finally over? you were just having so much fun\n", 35, 0);
+    slow_print("Well it's getting dark anyways so let's just get back home\n\n", 35, 0);
+
+    printf("Press enter to follow the boy home...");
+    getchar();
 }
 

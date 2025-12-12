@@ -68,3 +68,34 @@ void trigger_game_over(const char *reason) {
     // Keluar paksa dari program
     exit(0); 
 }
+
+void animate_suspicion_meter(int *currentValue, int targetValue) {
+    int step = (*currentValue < targetValue) ? 1 : -1;
+    int value = *currentValue;
+
+    while (value != targetValue) {
+        value += step;
+
+        int barLength = value / 2;
+        if (barLength > 50) {barLength = 50;}
+        if (barLength < 0) {barLength = 0;}
+
+        char bar[60];
+        for (int i = 0; i < barLength; i++){ 
+        bar[i] = '#';
+        bar[barLength] = '\0';
+
+        printf("\rSuspicion: [%s] %d%%   ", bar, value);
+        fflush(stdout);
+
+        #ifdef _WIN32
+            Sleep(20);
+        #else
+            usleep(20000);
+        #endif
+        }
+    }
+
+    *currentValue = targetValue;
+    printf("\n");
+}

@@ -16,4 +16,6 @@ void clear_screen();
 // Menampilkan Game Over dan alasan kematian
 void trigger_game_over(const char *reason);
 
+void animate_suspicion_meter(int *currentValue, int targetValue);
+
 #endif
