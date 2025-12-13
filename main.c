@@ -17,6 +17,7 @@ int main() {
     play_chapter_forest(&player); 
     play_chapter_house(&player);
     play_chapter_TheFields(&player);
+    play_chapter_conflict(&player);
 
     return 0;
 }
