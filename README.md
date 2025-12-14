@@ -14,7 +14,7 @@ You have escaped the underground world by taking the form of a dog. You are adop
 Your goal is simple: **Blend in.**
 But every choice matters. The father is unstable, the boy is traumatized, and your true form is struggling to stay hidden.
 
-### Key Features
+### Game Mechanic
 * **Suspicion Meter:** Every strange action increases your suspicion. If it gets too high, the humans will know you are not a dog.
 * **Branching Storyline:** Your choices determine the fate of Dexter and his father.
 * **Inventory System:** Choose the right items to gain trust.
