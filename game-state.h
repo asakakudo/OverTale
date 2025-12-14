@@ -8,6 +8,7 @@ typedef struct {
     int hasBall;
     int hasKnife;
     int hasKnot;
+    int HelpOrNot;
 } GameState;
 
 #endif

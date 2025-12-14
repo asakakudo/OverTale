@@ -79,6 +79,18 @@ void play_chapter_forest(GameState *state) {
     scanf("%d", &choice);
     getchar();
 
+    while (choice < 1 || choice > 2){
+
+        printf("Invalid input, please re enter\n"); 
+        printf("Your choice >");
+        scanf("%d", &choice);
+        getchar();
+        printf("\n");
+
+    }
+
+    printf("\n\n");
+
     if (choice == 1) {
         // --- Path: MAKAN ANJING ---
         printf("\n");
@@ -330,7 +342,10 @@ void play_chapter_TheFields(GameState *state){
     slow_print("You were spacing out a little there\n", 35, 0);
     slow_print("This cause your suspicion bar to increase a little\n\n", 35, 0);
     
+    clear_screen();
+    printf("\n\n");
     animate_suspicion_meter(&state->suspicionMeter, 15);
+    clear_screen();
 
     slow_print("\"What's wrong dexter? Lets play...\"\n\n", 25, 0);
 
@@ -347,7 +362,10 @@ void play_chapter_TheFields(GameState *state){
 
     slow_print("Staying silent and observing first is the right decision rather than guessing how the game works.\n", 35, 0);
     
+    clear_screen();
+    printf("\n\n");
     animate_suspicion_meter(&state->suspicionMeter, 25);
+    clear_screen();
     
     slow_print("As you were playing fetch and you were bringing back the stick to the boy.\n", 35, 0);
     slow_print("The boy said...\n\n", 35, 0);
@@ -424,7 +442,7 @@ void play_chapter_TheFields(GameState *state){
     scanf("%d", &choice);
     getchar();
 
-    while (choice < 1 || choice > 4){
+     while (choice < 1 || choice > 3){
 
         printf("Invalid input, please re enter\n"); 
         printf("Your choice >");
@@ -473,7 +491,10 @@ void play_chapter_TheFields(GameState *state){
         slow_print("\"I didn't know you like to play with this thing before\"\n", 35, 0);
         slow_print("\"I guess you want to play with this today, right ? Lets just play\n\n", 35, 0);
 
+        clear_screen();
+        printf("\n\n");
         animate_suspicion_meter(&state->suspicionMeter, 55);
+        clear_screen();
 
         slow_print("You Realized you probably just made a mistake, but the deed has been done.\n", 35, 0);
         slow_print("You still will play with the boy using the beach ball and having fun,\n", 35, 0);
@@ -501,7 +522,10 @@ void play_chapter_TheFields(GameState *state){
         dot_animation();
         printf("\"\n");
 
+        clear_screen();
+        printf("\n\n");
         animate_suspicion_meter(&state->suspicionMeter, 100);
+        clear_screen();
 
         trigger_game_over("You brought the absolute worst object");
         return;
@@ -539,7 +563,10 @@ void play_chapter_TheFields(GameState *state){
 
         slow_print("Based on that respond, maybe you have made the right decision,\n", 35, 0);
 
+        clear_screen();
+        printf("\n\n");
         animate_suspicion_meter(&state->suspicionMeter, 0);
+        clear_screen();
 
         slow_print("\"Catch Dexter...\" Shouts the boy\n", 35, 0);
         slow_print("The boy then throw the frisbee up to the sky,\n", 35, 0);
@@ -588,35 +615,50 @@ void play_chapter_conflict(GameState *state) {
     slow_print("He glares at the boy and you.\n\n", 35, 0);
 
     slow_print("Without a word, he walks fast towards the boy.\n", 30, 0);
-    slow_print("He grabs Dexter's arm and drags him inside roughly!\n", 25, 0);
+    slow_print("He grabs The boy's arm and drags him inside roughly!\n", 25, 0);
     slow_print("\"COME HERE YOU USELESS BRAT!\"\n\n", 20, 0);
 
     slow_print("He reaches for his belt.\n", 35, 0);
-    slow_print("Dexter is crying, looking at you with pleading eyes.\n\n", 35, 0);
+    slow_print("The boy is crying, and unable to do anything against him.\n\n", 35, 0);
 
     printf("What will you do?\n");
     printf("[1] Do nothing (Watch)\n");
-    printf("[2] Bark and Protect Dexter (Intervene)\n");
+    printf("[2] Protect The boy (Intervene)\n");
     printf("Your choice > ");
 
-    int choice;
+
+    int choice = 0;
     scanf("%d", &choice);
     getchar();
+
+    while (choice < 1 || choice > 2){
+
+        printf("Invalid input, please re enter\n"); 
+        printf("Your choice >");
+        scanf("%d", &choice);
+        getchar();
+        printf("\n");
+
+    }
+
+    printf("\n\n");
 
     if (choice == 1) {
         slow_print("\nYou chose to stay silent.\n", 40, 0);
         slow_print("The man beats the boy mercilessly.\n", 40, 0); 
         slow_print("Eventually, the man gets tired and passes out on the sofa.\n", 35, 0); 
         slow_print("Dexter crawls to his room, bruised and crying.\n\n", 35, 0);
-        animate_suspicion_meter(&state->suspicionMeter, 75);
         printf("Press ENTER to rest...");
         getchar();
         clear_screen();
+
+        state->HelpOrNot = 0;
+
     } else if (choice == 2) {
 
     printf("\n");
-    slow_print("ROAAAAAR!!!\n", 10, 0);
-    slow_print("You lunge at the man, barking ferociously!\n", 20, 0);
+    slow_print("BARK!!! BARK!!!\n", 10, 0);
+    slow_print("You lunge between them, barking ferociously!\n", 20, 0);
     
     slow_print("The man is startled, but he kicks you hard!\n", 20, 0);
     slow_print("You fly across the room and hit a table.\n", 20, 0);
@@ -632,6 +674,8 @@ void play_chapter_conflict(GameState *state) {
 
     slow_print("Dexter runs to you, crying.\n", 35, 0);
     slow_print("\"Dexter... thank you... lets go to my room...\"\n\n", 35, 0);
+
+    state->HelpOrNot = 1;
     
     printf("Press ENTER to rest...");
     getchar();
@@ -643,7 +687,7 @@ void play_chapter_conflict(GameState *state) {
     slow_print("It's the man. He has the SHOTGUN again.\n", 20, 0);
     
     slow_print("He grabs you by the neck and drags you outside.\n", 25, 0);
-    slow_print("Dexter tries to stop him but is pushed aside.\n", 25, 0);
+    slow_print("The boy tries to stop him but is pushed aside.\n", 25, 0);
     
     slow_print("Outside, he throws you to the ground.\n", 25, 0);
     slow_print("He ties your legs and your muzzle tight.\n", 25, 0);
@@ -659,76 +703,170 @@ void play_chapter_conflict(GameState *state) {
     printf("[1] Accept fate (Die as a Dog)\n");
     printf("[2] Eat Him (Reveal Monster Form)\n");
     printf("[3] Escape (Run away)\n");
-    
-    // Opsi Pacifist hanya muncul jika Suspicion RENDAH (< 40)
-    if (state->suspicionMeter < 40) {
-        printf("[4] Whimper and Lick his hand (Mercy)\n");
-    }
-    
     printf("Your choice > ");
     
     int finalChoice;
     scanf("%d", &finalChoice);
     getchar();
 
+    while (choice < 1 || choice > 3){
+
+        printf("Invalid input, please re enter\n"); 
+        printf("Your choice >");
+        scanf("%d", &choice);
+        getchar();
+        printf("\n");
+
+    }
+
+    printf("\n\n");
+
     if (finalChoice == 1) {
-        slow_print("BANG!\n", 10, 0);
-        trigger_game_over("You died as a loyal dog. Dexter is now alone.");
-        return;
+        if(state->HelpOrNot == 1 && state->suspicionMeter < 40){
+            slow_print("With the gun pointed at your head and your feet tied you chosed to do nothing", 40, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("( \"Maybe you shouldn't have intervened with their life\" ) \n", 40, 0);
+            slow_print("( \"Maybe coexisting with humans were not so good of an idea after all\" ) \n", 40, 0);
+            slow_print("( \"Humans have very complex emotions... What is wrong with this man\" ) \n", 40, 0);
+            slow_print("( \"Why is this boy still with him though he doesn't even like him\" ) \n\n", 40, 0);
+
+            slow_print("Stream of memories begin to enter your mind", 40, 0);
+            dot_animation();
+            printf("\n");
+            slow_print("The first time you have ever touch the surface\n", 40, 0);
+            dot_animation();
+            printf("\n");
+            slow_print("The first time you have ever played with the boy\n", 40, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("but still\n", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("In the end\n", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("You have failed all of them\n", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            #ifdef _WIN32
+            Sleep(5000); 
+            #else
+            usleep(5000000);
+            #endif
+
+            slow_print("What's taking so long?\n", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("Why are you still alive\n", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("The man pauses. His hand is shaking violently.\n", 40, 0);
+            slow_print("\"Oh my god\" he sobs.\n", 40, 0);
+            slow_print("\"What have I become? I'm a monster...\"\n\n", 40, 0);
+
+            slow_print("He drops the shotgun to the grass.\n", 35, 0);
+            slow_print("He falls to his knees and hugs you, crying uncontrollably.\n", 35, 0);
+            slow_print("Dexter runs out and joins the hug.\n\n", 35, 0);
+
+            slow_print("That night, no blood was shed.\n", 35, 0);
+            slow_print("It wasn't an instant fix. But it was a start.\n", 35, 0);
+            slow_print("The man started to drink less. He started to smile more.\n", 35, 0);
+            slow_print("And you? You watched over them. Not as a human, but atleast as something close to them.\n\n", 35, 0);
+
+            printf("=========================================\n");
+            printf("       P A C I F I S T   E N D I N G     \n");
+            printf("    (Is this really what you've wanted ?)\n");
+            printf("=========================================\n\n");
+            printf("Press ENTER to finish.");
+            getchar();
+            exit(0);
+        }
+        else {
+            slow_print("With the gun pointed at your head and your feet tied you chosed to do nothing", 40, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("( \"Maybe you shouldn't have intervened with their life\" ) \n", 40, 0);
+            slow_print("( \"Maybe coexisting with humans were not so good of an idea after all\" ) \n", 40, 0);
+            slow_print("( \"Humans have very complex emotions... What is wrong with this man\" ) \n", 40, 0);
+            slow_print("( \"Why is this boy still with him though he doesn't even like him\" ) \n\n", 40, 0);
+
+            slow_print("Stream of memories begin to enter your mind", 40, 0);
+            dot_animation();
+            printf("\n");
+            slow_print("The first time you have ever touch the surface\n", 40, 0);
+            dot_animation();
+            printf("\n");
+            slow_print("The first time you have ever played with the boy\n", 40, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("but still\n", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("In the end\n", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("You have failed all of them\n", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            #ifdef _WIN32
+            Sleep(2000); 
+            #else
+            usleep(2000000);
+            #endif
+
+            slow_print("BANG!\n", 10, 0);
+
+            #ifdef _WIN32
+            Sleep(2000); // ms
+            #else
+            usleep(2000000); // microseconds
+            #endif
+
+            trigger_game_over("You died in despair");
+            return;
+        }
+        
     } 
 
     else if (finalChoice == 3) {
         slow_print("You rip the ropes with your monster strength and run into the forest.\n", 30, 0);
-        trigger_game_over("You survived, but you abandoned Dexter.");
+        trigger_game_over("You survived, but you abandoned The boy.");
         return;
     }
     
-    else if (finalChoice == 4 && state->suspicionMeter < 40) {
-        printf("\n");
-        slow_print("You choose mercy.\n", 40, 0);
-        slow_print("Despite the gun at your head, you nudge his hand gently.\n", 40, 0);
-        slow_print("You let out a soft, sad whimper.\n\n", 40, 0);
-
-        slow_print("The man pauses. His hand is shaking violently.\n", 40, 0);
-        slow_print("\"Why...?\" he sobs.\n", 40, 0);
-        slow_print("\"Why don't you bite me? I'm a monster...\"\n\n", 40, 0);
-
-        slow_print("He drops the shotgun to the grass.\n", 35, 0);
-        slow_print("He falls to his knees and hugs you, crying uncontrollably.\n", 35, 0);
-        slow_print("Dexter runs out and joins the hug.\n\n", 35, 0);
-
-        slow_print("That night, no blood was shed.\n", 35, 0);
-        slow_print("It wasn't an instant fix. But it was a start.\n", 35, 0);
-        slow_print("The man started to drink less. He started to smile more.\n", 35, 0);
-        slow_print("And you? You watched over them. Not as a monster, but as a guardian.\n\n", 35, 0);
-
-        printf("=========================================\n");
-        printf("       P A C I F I S T   E N D I N G     \n");
-        printf("           (The Family Reborn)           \n");
-        printf("=========================================\n\n");
-        printf("Press ENTER to finish.");
-        getchar();
-        exit(0);
-    }
 
     else if (finalChoice == 2) {
         printf("\n");
         slow_print("You choose violence.\n", 35, 0);
         slow_print("Your body explodes into black liquid!\n", 25, 0);
+        slow_print("and quickly, you engulf the man with all of your body.\n", 25, 0);
         slow_print("The man screams as you engulf him completely.\n", 25, 0);
         slow_print("In seconds, he is dissolved. Nothing remains.\n\n", 35, 0);
 
         slow_print("You turn around to see Dexter standing there.\n", 35, 0);
         
-        if (state->suspicionMeter > 55) {
+        if (state->suspicionMeter > 50) {
             
-            printf("\n(Suspicion > 55: Dexter knows you are dangerous!)\n\n");
+            printf("\n(Suspicion > 55: The boy knows you are dangerous!)\n\n");
             
-            slow_print("Dexter is NOT crying. He is trembling with rage and fear.\n", 35, 0);
+            slow_print("The boy is NOT crying. He is trembling with rage and fear.\n", 35, 0);
             slow_print("\"You... you ate him...\" he whispers.\n", 35, 0);
             slow_print("\"YOU ARE NOT A DOG!\"\n\n", 20, 0);
 
-            slow_print("Dexter runs to the dropped SHOTGUN!\n", 20, 0);
+            slow_print("The boy runs to the dropped SHOTGUN!\n", 20, 0);
             slow_print("He picks it up. It's too heavy for him, but he aims at you.\n", 30, 0);
             slow_print("\"DIE MONSTER!!\"\n", 15, 0);
             
@@ -740,44 +878,149 @@ void play_chapter_conflict(GameState *state) {
             slow_print("You envelop the boy.\n", 40, 0);
             slow_print("His screams are cut short.\n\n", 50, 0);
 
-            slow_print("...\n", 60, 0);
-            slow_print("Silence returns to the forest.\n", 40, 0);
-            slow_print("You have eaten everyone.\n", 40, 0);
-            slow_print("You are alone again. Just like in the abyss.\n\n", 40, 0);
+            dot_animation();
+            printf("\n\n");
+            slow_print("Silence returns to the forest", 40, 0);
+            dot_animation();
+            printf("\n\n");
+            slow_print("You have eaten everyone", 40, 0);
+            dot_animation();
+            printf("\n\n");
+            slow_print("You are alone again. Just like in the abyss", 40, 0);
+            dot_animation();
+            printf("\n\n");
 
             printf("=========================================\n");
-            printf("       G E N O C I D E   E N D I N G     \n");
-            printf("           (Consumed by Hunger)          \n");
+            printf("            B A D  E N D I N G           \n");
+            printf("             (No Other Choice)           \n");
             printf("=========================================\n\n");
             printf("Press ENTER to finish.");
             getchar();
             exit(0);
 
-        } else {
+        } else{
             
-            slow_print("Dexter is pale. Terrified.\n", 35, 0);
-            slow_print("He stumbles back and falls.\n", 20, 0);
+            slow_print("The boy is pale. Terrified.\n", 35, 0);
+            slow_print("He stumbles back and falls.\n\n", 20, 0);
             
-            printf("( \"I did this for you...\" you think. )\n");
+            slow_print("You now have access to human language so you told the boy.\n", 35, 0);
 
-            slow_print("Dexter scrambles up and runs to his room, locking the door.\n", 30, 0);
-            slow_print("You decide to sleep in the living room.\n\n", 35, 0);
+            slow_print("\"Hello boy, it's me. Dexter", 35, 0);
+            dot_animation();
+            printf("\"\n");
+            slow_print("\"Well i can't say that\"", 35, 0);
+            slow_print("\"I'm not really dexter\"", 35, 0);
+            slow_print("\"It's a long story, i'll tell you about it later\"", 35, 0);
+            slow_print("\"but first you need to understand", 35, 0);
+            dot_animation();
+            printf("\"\n\n");
+
+            slow_print("\"I did this for you", 35, 0);
+            dot_animation();
+            printf("\"\n\n");
+
+            slow_print("\"I know you hated him\"", 35, 0);
+            slow_print("\"that's why i did this so that we can live together happily without him", 35, 0);
+            dot_animation();
+            printf("\"\n\n");
+
+            slow_print("without anything coming out of his mouth,", 35, 0);
+            slow_print("The boy scrambles up and runs to his room, locking the door.\n", 30, 0);
+            slow_print("( \"Maybe he is not ready to accept this yet\" ) you thought\n", 35, 0);
+            slow_print("You decide to give the boy sometimes to think,\n", 35, 0);
+            slow_print("this night you sleep in the living room.\n\n", 35, 0);
 
             printf("Press ENTER for the next day...");
             getchar();
             clear_screen();
 
-            slow_print("The next morning... Silence.\n", 40, 0);
-            slow_print("You push the boy's door open.\n", 40, 0);
-            
+            slow_print("The next morning... Silence.\n", 50, 0);
+            slow_print("There is no noise coming from thr forest, nor the boys room when you knock\n", 50, 0);
             dot_animation();
             printf("\n");
+            slow_print("He probably still is not ready, let's give him more time to think\n", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("And just like that you watid for the boy to come out", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("Seconds turn into minutes, minutes turns into hours\n", 50, 0);
+            slow_print("Hours turns into days, days turns into weeks\n", 50, 0);
+            slow_print("The boy is still not coming out\n\n", 50, 0);
+
+            slow_print("You decide to force the door open", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("Iside", 50, 0);
+            dot_animation();
+            printf("\n\n");
             
-            slow_print("Dexter is hanging from the ceiling.\n\n", 60, 0);
+            slow_print("The boy is hanging from the ceiling", 60, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("You thought he is just hanging but no, he is lifeless\n", 50, 0);
+            slow_print("eating the boy to conceal your exixtence is probably the best option now", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("You ate him", 60, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("Just when you were about to leave the room, you got a flash back\n", 50, 0);
+            slow_print("This is not your memory. but the boy's\n", 50, 0);
+            slow_print("You see that in the past the man was very kind and happy unlike now.\n", 50, 0);
+            slow_print("He is playing with the boy inside the boy's room\n", 50, 0);
+            slow_print("The door creeks open suddenly and reveals the beautifull long haired figure\n", 50, 0);
+            slow_print("You can now see her face clearly, and in her hands she is carrying a puppy\n", 50, 0);
+            slow_print("That is gotta be Dexter", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("You see 2 hands reaching for the puppy. This was Dexter's first time meeting the boy", 50, 0);
+            dot_animation();
+            printf("\n\n");
             
+            slow_print("when the boy was hugging the puppy you can hear \"I Love you mom and dad\"", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("The surge of memories continue\n", 50, 0);
+            slow_print("From Dexter and the boy's first meeting, the fields untill the mother's death", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("When you wake up, it's already night", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("But, that is not your concern", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("The boy's memory reveals a lot of things\n", 50, 0);
+            slow_print("The beautifull figure's identity and his relationship with the man\n", 50, 0);
+            slow_print("Turns out they were the boy refer to as family\n", 50, 0);
+            slow_print("The boy's name was william and the family turned bad when his mother died", 50, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("What have you done", 60, 0);
+            dot_animation();
+            printf("\n\n");
+
+            slow_print("You just annihilated a beautifull family", 50, 0);
+            dot_animation();
+            printf(" ");
+            dot_animation();
+
             printf("=========================================\n");
             printf("           T R U E   E N D I N G         \n");
-            printf("      (The Monster and The Silence)      \n");
+            printf("          (Love Was Never enough)        \n");
             printf("=========================================\n\n");
             
             printf("Press ENTER to finish.");
