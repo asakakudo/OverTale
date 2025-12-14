@@ -6,7 +6,7 @@ if %errorlevel% neq 0 (
     echo [Error] Ada error saat compile!
     pause
 ) else (
-    echo [Success] Menjalankan game...
+    echo [Success] Running the game...
     echo -------------------------------
     overtale.exe
 )
