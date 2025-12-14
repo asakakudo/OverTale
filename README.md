@@ -19,10 +19,6 @@ But every choice matters. The father is unstable, the boy is traumatized, and yo
 * **Branching Storyline:** Your choices determine the fate of Dexter and his father.
 * **Inventory System:** Choose the right items to gain trust.
 * **Multiple Endings:**
-    * 🕊️ **Pacifist Ending:** Heal the broken family.
-    * 💀 **Genocide Ending:** Let your hunger consume everything.
-    * 👁️ **True Ending:** The tragic reality of a monster's love.
-* **Immersive Visuals:** Features ASCII art and atmospheric text effects.
 
 ## 🎮 How to Play
 
