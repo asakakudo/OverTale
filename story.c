@@ -679,7 +679,10 @@ void play_chapter_conflict(GameState *state) {
         slow_print("\nYou chose to stay silent.\n", 40, 0);
         slow_print("The man beats the boy mercilessly.\n", 40, 0); 
         slow_print("Eventually, the man gets tired and passes out on the sofa.\n", 35, 0); 
-        slow_print("Dexter crawls to his room, bruised and crying.\n\n", 35, 0);
+        slow_print("The boy crawls to his room, bruised and crying.\n", 35, 0);
+        slow_print("You followed the boy to his room.\n", 35, 0);
+        slow_print("The boy doesn't blame you, cause you could have got hurt aswell.\n", 35, 0);
+        slow_print("He just wants to rest now.\n\n", 35, 0);
         printf("Press ENTER to rest...");
         getchar();
         clear_screen();
