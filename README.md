@@ -18,7 +18,7 @@ But every choice matters. The father is unstable, the boy is traumatized, and yo
 * **Suspicion Meter:** Every strange action increases your suspicion. If it gets too high, the humans will know you are not a dog.
 * **Branching Storyline:** Your choices determine the fate of Dexter and his father.
 * **Inventory System:** Choose the right items to gain trust.
-* **Multiple Endings:**
+* **Multiple Endings**
 
 ## 🎮 How to Play
 
