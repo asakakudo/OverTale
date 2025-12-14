@@ -50,6 +50,9 @@ void play_prologue() {
     
 // Fungsi buat Chapter 1
 void play_chapter_forest(GameState *state) {
+    state->suspicionMeter = 0;
+    state->hasEatenDog = 0;
+
     slow_print("\nYou crawled out of the abyss and was met with the sight of the surface,\n", 35, 0);
     slow_print("It is beautifull, stunning, nothing like you've ever seen, the moon light shines on your body,\n", 35, 0);
     slow_print("the wind of the night soothes your skin,\n", 35, 0);
@@ -75,7 +78,7 @@ void play_chapter_forest(GameState *state) {
     printf("[2] Let this creature go (Stay in its original form)\n");
     printf("Your choice > ");
     
-    int choice;
+    int choice = 0;
     scanf("%d", &choice);
     getchar();
 
@@ -89,7 +92,7 @@ void play_chapter_forest(GameState *state) {
 
     }
 
-    printf("\n\n");
+    printf("\n");
 
     if (choice == 1) {
         // --- Path: MAKAN ANJING ---
@@ -255,6 +258,10 @@ void play_chapter_house(GameState *state) {
 }
 
 void play_chapter_TheFields(GameState *state){
+    state->hasBall = 0;
+    state->hasFrisbee = 0;
+    state->hasKnife = 0;
+
     slow_print("The night has passed", 35, 0);
     dot_animation();
     printf("\n\n");
@@ -345,6 +352,11 @@ void play_chapter_TheFields(GameState *state){
     clear_screen();
     printf("\n\n");
     animate_suspicion_meter(&state->suspicionMeter, 15);
+    #ifdef _WIN32
+    Sleep(2000); 
+    #else
+    usleep(2000000);
+    #endif
     clear_screen();
 
     slow_print("\"What's wrong dexter? Lets play...\"\n\n", 25, 0);
@@ -365,6 +377,11 @@ void play_chapter_TheFields(GameState *state){
     clear_screen();
     printf("\n\n");
     animate_suspicion_meter(&state->suspicionMeter, 25);
+    #ifdef _WIN32
+    Sleep(2000); 
+    #else
+    usleep(2000000);
+    #endif
     clear_screen();
     
     slow_print("As you were playing fetch and you were bringing back the stick to the boy.\n", 35, 0);
@@ -425,10 +442,8 @@ void play_chapter_TheFields(GameState *state){
     slow_print("Lets continue...\n\n", 35, 0);
 
     slow_print("You are now upstairs, inside the boy's room.\n", 35, 0);
-    slow_print("There are 2 Items that piqued your interest.", 35, 0);
-    slow_print("One item is a flat circle shaped with a bright red color,\n", 35, 0);
-    slow_print("the second item is a long object that has 2 balls on each end,\n", 35, 0);
-    slow_print("the item is not stiff though, and the balls are seem to be made from the item tied to itself", 35, 0);
+    slow_print("There is an item that piqued your interest.", 35, 0);
+    slow_print("The item is a flat circle shaped with a bright red color,\n", 35, 0);
     dot_animation();
     printf("\n\n");
 
@@ -494,6 +509,11 @@ void play_chapter_TheFields(GameState *state){
         clear_screen();
         printf("\n\n");
         animate_suspicion_meter(&state->suspicionMeter, 55);
+        #ifdef _WIN32
+        Sleep(2000); 
+        #else
+        usleep(2000000);
+        #endif
         clear_screen();
 
         slow_print("You Realized you probably just made a mistake, but the deed has been done.\n", 35, 0);
@@ -525,6 +545,11 @@ void play_chapter_TheFields(GameState *state){
         clear_screen();
         printf("\n\n");
         animate_suspicion_meter(&state->suspicionMeter, 100);
+        #ifdef _WIN32
+        Sleep(2000); 
+        #else
+        usleep(2000000);
+        #endif
         clear_screen();
 
         trigger_game_over("You brought the absolute worst object");
@@ -566,6 +591,11 @@ void play_chapter_TheFields(GameState *state){
         clear_screen();
         printf("\n\n");
         animate_suspicion_meter(&state->suspicionMeter, 0);
+        #ifdef _WIN32
+        Sleep(2000); 
+        #else
+        usleep(2000000);
+        #endif
         clear_screen();
 
         slow_print("\"Catch Dexter...\" Shouts the boy\n", 35, 0);
@@ -600,6 +630,8 @@ void play_chapter_TheFields(GameState *state){
 }
 
 void play_chapter_conflict(GameState *state) {
+    state->HelpOrNot = 0; 
+
     clear_screen();
     
     slow_print("The walk home was quiet, but peaceful.\n", 35, 0);
@@ -641,7 +673,7 @@ void play_chapter_conflict(GameState *state) {
 
     }
 
-    printf("\n\n");
+    printf("\n");
 
     if (choice == 1) {
         slow_print("\nYou chose to stay silent.\n", 40, 0);
@@ -709,17 +741,17 @@ void play_chapter_conflict(GameState *state) {
     scanf("%d", &finalChoice);
     getchar();
 
-    while (choice < 1 || choice > 3){
+    while (finalChoice < 1 || finalChoice > 3){
 
         printf("Invalid input, please re enter\n"); 
         printf("Your choice >");
-        scanf("%d", &choice);
+        scanf("%d", &finalChoice);
         getchar();
         printf("\n");
 
     }
 
-    printf("\n\n");
+    printf("\n");
 
     if (finalChoice == 1) {
         if(state->HelpOrNot == 1 && state->suspicionMeter < 40){
@@ -856,11 +888,9 @@ void play_chapter_conflict(GameState *state) {
         slow_print("The man screams as you engulf him completely.\n", 25, 0);
         slow_print("In seconds, he is dissolved. Nothing remains.\n\n", 35, 0);
 
-        slow_print("You turn around to see Dexter standing there.\n", 35, 0);
+        slow_print("You turn around to see the boy standing there.\n", 35, 0);
         
         if (state->suspicionMeter > 50) {
-            
-            printf("\n(Suspicion > 55: The boy knows you are dangerous!)\n\n");
             
             slow_print("The boy is NOT crying. He is trembling with rage and fear.\n", 35, 0);
             slow_print("\"You... you ate him...\" he whispers.\n", 35, 0);
@@ -908,9 +938,9 @@ void play_chapter_conflict(GameState *state) {
             slow_print("\"Hello boy, it's me. Dexter", 35, 0);
             dot_animation();
             printf("\"\n");
-            slow_print("\"Well i can't say that\"", 35, 0);
-            slow_print("\"I'm not really dexter\"", 35, 0);
-            slow_print("\"It's a long story, i'll tell you about it later\"", 35, 0);
+            slow_print("\"Well i can't say that\"\n", 35, 0);
+            slow_print("\"I'm not really dexter\"\n", 35, 0);
+            slow_print("\"It's a long story, i'll tell you about it later\"\n", 35, 0);
             slow_print("\"but first you need to understand", 35, 0);
             dot_animation();
             printf("\"\n\n");
@@ -919,7 +949,7 @@ void play_chapter_conflict(GameState *state) {
             dot_animation();
             printf("\"\n\n");
 
-            slow_print("\"I know you hated him\"", 35, 0);
+            slow_print("\"I know you hated him\"\n", 35, 0);
             slow_print("\"that's why i did this so that we can live together happily without him", 35, 0);
             dot_animation();
             printf("\"\n\n");
@@ -935,10 +965,10 @@ void play_chapter_conflict(GameState *state) {
             clear_screen();
 
             slow_print("The next morning... Silence.\n", 50, 0);
-            slow_print("There is no noise coming from thr forest, nor the boys room when you knock\n", 50, 0);
+            slow_print("There is no noise coming from thr forest, nor the boys room when you knock", 50, 0);
             dot_animation();
             printf("\n");
-            slow_print("He probably still is not ready, let's give him more time to think\n", 50, 0);
+            slow_print("He probably still is not ready, let's give him more time to think", 50, 0);
             dot_animation();
             printf("\n\n");
 
@@ -961,6 +991,12 @@ void play_chapter_conflict(GameState *state) {
             slow_print("The boy is hanging from the ceiling", 60, 0);
             dot_animation();
             printf("\n\n");
+
+            #ifdef _WIN32
+            Sleep(2000); 
+            #else
+            usleep(2000000);
+            #endif
 
             slow_print("You thought he is just hanging but no, he is lifeless\n", 50, 0);
             slow_print("eating the boy to conceal your exixtence is probably the best option now", 50, 0);
@@ -1017,6 +1053,7 @@ void play_chapter_conflict(GameState *state) {
             dot_animation();
             printf(" ");
             dot_animation();
+            printf("\n\n");
 
             printf("=========================================\n");
             printf("           T R U E   E N D I N G         \n");

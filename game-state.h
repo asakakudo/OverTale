@@ -7,7 +7,6 @@ typedef struct {
     int hasFrisbee;     // 1 : True, 0 : False
     int hasBall;
     int hasKnife;
-    int hasKnot;
     int HelpOrNot;
 } GameState;
 

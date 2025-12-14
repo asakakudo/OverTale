@@ -11,7 +11,7 @@ int main() {
     player.hasFrisbee = 0;
     player.hasBall = 0;
     player.hasKnife = 0;
-    player.hasKnot = 0;
+    player.HelpOrNot = 0;
 
     play_prologue();
     play_chapter_forest(&player); 

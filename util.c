@@ -89,7 +89,7 @@ void animate_suspicion_meter(int *currentValue, int targetValue) {
         fflush(stdout);
 
         #ifdef _WIN32
-            Sleep(20);
+            Sleep(10);
         #else
             usleep(20000);
         #endif
