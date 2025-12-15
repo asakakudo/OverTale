@@ -16,7 +16,7 @@ void play_prologue() {
     #else
     sleep(2); // sleep takes seconds
     #endif
-    
+
     slow_print("Deep beneath the surface of the earth, hidden away from the touch of sunlight,\n", 35, 0);
     slow_print("there existed a world of darkness unknown to mankind.\n", 35, 0);
     slow_print("In that forgotten place, a strange creature was born, a shapeless entity", 35, 0); //print story opening pertama 
@@ -46,6 +46,24 @@ void play_prologue() {
 
     printf("Press ENTER to continue...");
     getchar(); 
+    printf("\n");
+
+    slow_print("Welcome to...", 70, 0); 
+    clear_screen();
+
+    slow_print("                                    ######   ##    ##  ######  ######  ########  ######  ##      ###### \n", 10, 0);
+    slow_print("                                   ##    ##  ##    ##  ##      ##   ##    ##    ##    ## ##      ##      \n", 10, 0);
+    slow_print("                                   ##    ##  ##    ##  #####   ######     ##    ######## ##      #####   \n", 10, 0);
+    slow_print("                                   ##    ##   ##  ##   ##      ##   ##    ##    ##    ## ##      ##      \n", 10, 0);
+    slow_print("                                    ######     ####    ######  ##   ##    ##    ##    ##  ###### ###### \n\n", 10, 0);
+
+    #ifdef _WIN32
+    Sleep(5000); // Sleep takes milliseconds
+    #else
+    sleep(2); // sleep takes seconds
+    #endif
+    
+    clear_screen();
 }
     
 // Fungsi buat Chapter 1
@@ -679,7 +697,10 @@ void play_chapter_conflict(GameState *state) {
         slow_print("\nYou chose to stay silent.\n", 40, 0);
         slow_print("The man beats the boy mercilessly.\n", 40, 0); 
         slow_print("Eventually, the man gets tired and passes out on the sofa.\n", 35, 0); 
-        slow_print("Dexter crawls to his room, bruised and crying.\n\n", 35, 0);
+        slow_print("The boy crawls to his room, bruised and crying.\n", 35, 0);
+        slow_print("You followed the boy to his room.\n", 35, 0);
+        slow_print("The boy doesn't blame you, cause you could have got hurt aswell.\n", 35, 0);
+        slow_print("He just wants to rest now.\n\n", 35, 0);
         printf("Press ENTER to rest...");
         getchar();
         clear_screen();
@@ -732,9 +753,9 @@ void play_chapter_conflict(GameState *state) {
 
     // --- PEMILIHAN ENDING UTAMA ---
     printf("This is the end. What will you do?\n");
-    printf("[1] Accept fate (Die as a Dog)\n");
-    printf("[2] Eat Him (Reveal Monster Form)\n");
-    printf("[3] Escape (Run away)\n");
+    printf("[1] Accept fate\n");
+    printf("[2] Fight back\n");
+    printf("[3] Escape\n");
     printf("Your choice > ");
     
     int finalChoice;
