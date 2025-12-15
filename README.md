@@ -6,9 +6,9 @@
 
 **Team Member :**
 
-1. **I Putu Pradnya Askara (2501020060)**
-2. **Gusti Gede Agung Rama Putra Udiana (2501020041)**
-3. **Muhammad Afif (2501020064)** 
+1. **I Putu Pradnya Askara**
+2. **Gusti Gede Agung Rama Putra Udiana**
+3. **Muhammad Afif** 
 
 ![Terminal Game](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey)
 ![Language](https://img.shields.io/badge/Language-C-blue)
