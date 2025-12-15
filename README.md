@@ -2,13 +2,7 @@
 
 > "Deep beneath the surface... a dream never faded."
 
-**Overtale** is a dark, narrative-driven text adventure game written in C. You play as a shapeless entity from the abyss who dreams of living among humans. To survive, you must maintain your disguise, manage your suspicion level, and make difficult moral choices.
-
-**Team Member :**
-
-1. **I Putu Pradnya Askara**
-2. **Gusti Gede Agung Rama Putra Udiana**
-3. **Muhammad Afif** 
+**Overtale** is a dark, narrative-driven text adventure game written in C. You play as a shapeless entity from the abyss who dreams of living among humans. To survive, you must maintain your disguise, manage your suspicion level, and make difficult moral choices. 
 
 ![Terminal Game](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey)
 ![Language](https://img.shields.io/badge/Language-C-blue)
