@@ -46,16 +46,15 @@ void play_prologue() {
 
     printf("Press ENTER to continue...");
     getchar(); 
-    printf("\n");
 
     slow_print("Welcome to...", 70, 0); 
     clear_screen();
 
-    slow_print("                                    ######   ##    ##  ######  ######  ########  ######  ##      ###### \n", 10, 0);
-    slow_print("                                   ##    ##  ##    ##  ##      ##   ##    ##    ##    ## ##      ##      \n", 10, 0);
-    slow_print("                                   ##    ##  ##    ##  #####   ######     ##    ######## ##      #####   \n", 10, 0);
-    slow_print("                                   ##    ##   ##  ##   ##      ##   ##    ##    ##    ## ##      ##      \n", 10, 0);
-    slow_print("                                    ######     ####    ######  ##   ##    ##    ##    ##  ###### ###### \n\n", 10, 0);
+    slow_print("                           ######   ##    ##  ######  ######  ########  ######  ##      ###### \n", 10, 0);
+    slow_print("                          ##    ##  ##    ##  ##      ##   ##    ##    ##    ## ##      ##      \n", 10, 0);
+    slow_print("                          ##    ##  ##    ##  #####   ######     ##    ######## ##      #####   \n", 10, 0);
+    slow_print("                          ##    ##   ##  ##   ##      ##   ##    ##    ##    ## ##      ##      \n", 10, 0);
+    slow_print("                           ######     ####    ######  ##   ##    ##    ##    ## ####### ###### \n\n", 10, 0);
 
     #ifdef _WIN32
     Sleep(5000); // Sleep takes milliseconds
@@ -88,13 +87,13 @@ void play_chapter_forest(GameState *state) {
     slow_print("The creature doesnt seem to pose any threat to you, but rather has interest in you\n", 35, 0);
     slow_print("You can feel air coming coming out of it snouts as it sniffes you\n", 35, 0);
     //Memakai warna atau tanda kurung berbeda agar menarik)
-    printf("\n( \"This creature is awesome...\" you think )\n\n");
+    printf("\n( \"This creature is awesome...\" you think )\n\n", 35, 0);
     
     // --- PILIHAN ---
-    printf("What would you do?\n");
-    printf("[1] Eat this creature (Changes shape in order to look familiar)\n");
-    printf("[2] Let this creature go (Stay in its original form)\n");
-    printf("Your choice > ");
+    printf("What would you do?\n", 35, 0);
+    printf("[1] Eat this creature (Changes shape in order to look familiar)\n", 35, 0);
+    printf("[2] Let this creature go (Stay in its original form)\n", 35, 0);
+    printf("Your choice > ", 35, 0);
     
     int choice = 0;
     scanf("%d", &choice);
@@ -145,7 +144,7 @@ void play_chapter_forest(GameState *state) {
         state->hasEatenDog = 0;
     }
     
-        printf("\nPress ENTER to continue your journey...");
+        printf("\nPress ENTER to continue your journey...", 35, 0);
         getchar();
 
     }
@@ -202,7 +201,7 @@ void play_chapter_house(GameState *state) {
 
     slow_print("He lowers the shotgun and lets you in.\n\n", 35, 0);
 
-    printf("Press ENTER to enter the house...");
+    printf("Press ENTER to enter the house...", 35, 0);
     getchar();
     clear_screen();
 
@@ -246,7 +245,7 @@ void play_chapter_house(GameState *state) {
 
     slow_print("\"Lets go upstairs Dexter\" says the little human \n\n", 25, 0);
 
-    printf("Press ENTER to follow the little human...");
+    printf("Press ENTER to follow the little human...", 35, 0);
     getchar();
     clear_screen();
 
@@ -269,7 +268,7 @@ void play_chapter_house(GameState *state) {
     slow_print("You obey the boy's request and curl up on the floor.\n", 35, 0);
     slow_print("This is your first night in the human world.\n", 35, 0);
 
-    printf("\nPress ENTER to Sleep...");
+    printf("\nPress ENTER to Sleep...", 35, 0);
     getchar();
     clear_screen();
 
@@ -325,7 +324,7 @@ void play_chapter_TheFields(GameState *state){
     dot_animation();
     printf("\n\n");
 
-    printf("press enter to jump through...");
+    printf("press enter to jump through...", 35, 0);
     getchar();
     clear_screen();
 
@@ -431,7 +430,7 @@ void play_chapter_TheFields(GameState *state){
     dot_animation();
     printf("\n\n");
 
-    printf("press enter to enter the house...");
+    printf("press enter to enter the house...", 35, 0);
     getchar();
     clear_screen();
 
@@ -469,7 +468,7 @@ void play_chapter_TheFields(GameState *state){
     printf("[1] The round colorfull object.\n");
     printf("[2] The flat super shiny triangular object.\n");
     printf("[3] The flat circle shaped red object.\n");
-    printf("Your choice >");
+    printf("Your choice >", 35, 0);
 
     int choice = 0;
     scanf("%d", &choice);
