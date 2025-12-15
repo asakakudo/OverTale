@@ -57,8 +57,8 @@ void trigger_game_over(const char *reason) {
     printf("           G A M E   O V E R             \n");
     printf("=========================================\n\n");
     
-    // Tampilkan alasan kematian 
-    printf("DEAD: %s\n\n", reason);
+    // Tampilkan alasan game over 
+    printf("Cause: %s\n\n", reason);
     
     printf("=========================================\n");
     printf("Press ENTER to exit the game...");
@@ -89,9 +89,9 @@ void animate_suspicion_meter(int *currentValue, int targetValue) {
         fflush(stdout);
 
         #ifdef _WIN32
-            Sleep(10);
+            Sleep(1);
         #else
-            usleep(20000);
+            usleep(500);
         #endif
         }
     }
